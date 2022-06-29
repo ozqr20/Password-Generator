@@ -1,33 +1,52 @@
+/*ACCEPTANCE CRITERIA 
+GIVEN I need a new, secure password
+WHEN I click the button to generate a password
+THEN I am presented with a series of prompts for password criteria
+WHEN prompted for password criteria
+THEN I select which criteria to include in the password
+WHEN prompted for the length of the password
+THEN I choose a length of at least 8 characters and no more than 128 characters
+WHEN asked for character types to include in the password
+THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+WHEN I answer each prompt
+THEN my input should be validated and at least one character type should be selected
+WHEN all prompts are answered
+THEN a password is generated that matches the selected criteria
+WHEN the password is generated
+THEN the password is either displayed in an alert or written to the page
+
+*/
+
+
+
 /* PSEUDO CODE
 
   1. Button to generate password should call the function to generate the password 
-  2. Then a prompt that will display the password criteria, the variables must be bolean type yes or not to be able to check inside the functions 
-      we use var passWordLenght = prompt("Message 1 lenght of the password ") and save it into a variable call passWordLenght
-      we use var lowerCase = prompt("Message 2 lowercase ") and save it into a variable call lowerCase
-      we use var upperCase = prompt("Message 3 uppercase ") and save it into a variable call upperCase
-      we use var numericValue = prompt("Message 4 numeric ") and save it into a variable call numericValue
-      we use var specialCharacters = console.prompt("Message 5 &&/|| special characters ") and save it into a variable call specialCharacters 
-      check using if statement if the input is valid 
+  2. Create functions
+        - passWordLenght
+        - lowerCase 
+        - upperCase
+        - numericValue
+        - specialCharacters 
+        - generatePassword
+
+  3. Then prompt 
+      var passWordLenght = prompt("Message 1 lenght of the password ") 
+      var lowerCase = prompt("Message 2 lowercase ") 
+      var upperCase = prompt("Message 3 uppercase ") 
+      var numericValue = prompt("Message 4 numeric ") 
+      var specialCharacters = console.prompt("Message 5 &&/|| special characters ") 
   
-  3. According to the user selection a switch statement would fit 
-      - switch statement 
+  4. If statements inside the prompts
         - option 1 will call the function the lenght of the password
         - option 2 will call the function lowercase letters
         - option 3 will call the function uppercase letters
         - option 4 will call the numeric function 
         - option 5 will call the special characters function 
   
-  4. Create the respective functions 
-        - passWordLenght
-        - lowerCase 
-        - upperCase
-        - numericValue
-        - specialCharacters 
-        - generatePassword 
+  6. Work on main function generatePassword to call the rest of the functions by using if statments and loops
 
 */
-
-
 
 
 // CHECKING PROMPT FUNCTIONS 
@@ -49,7 +68,7 @@ var lowerCase = function() {
         return lowerAcceptance
       }
       else if(lower === "2"){         // If the user choses no, then variable will be false 
-        var lowerAcceptance = [0];
+        var lowerAcceptance = null;
         return lowerAcceptance;
       }
       else{
@@ -65,7 +84,7 @@ var upperCase = function() {
     return upperAcceptance;
   }
   else if(upper === "2"){         // If the user choses no, then variable will be false 
-    var upperAcceptance = [0];
+    var upperAcceptance = null;
     return upperAcceptance;
   }
   else{
@@ -77,11 +96,11 @@ var upperCase = function() {
 var numericValue = function() {
   var numeric = window.prompt("Would you like a NUMERIC value in your password type 1 for yes or 2 for not");
   if(numeric === "1"){                // check for the user input
-    var numericAcceptance = '0,1,2,3,4,5,6,7,8,9';
+    var numericAcceptance = [0,1,2,3,4,5,6,7,8,9];
     return numericAcceptance;
   }
   else if(numeric === "2"){         // If the user choses no, then variable will be false 
-    var numericAcceptance = false;
+    var numericAcceptance = null;
     return numericAcceptance;
   }
   else{
@@ -97,7 +116,7 @@ var specialCharacters = function() {
     return CharAcceptance;
   }
   else if(specialChar === "2"){         // If the user choses no, then variable will be false 
-    var CharAcceptance = false;
+    var CharAcceptance = null;
     return CharAcceptance;
   }
   else{
@@ -107,28 +126,10 @@ var specialCharacters = function() {
 } // END OF SPECIAL CHARACTERS FUNCTION 
 
 
-
-var generatePassword = function (){ /* not ready yet */ }
-
+var generatePassword = function (){ 
 
 
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
+ }
 
 
 // --------  GLOBAL VARIABLES ------------ 
@@ -138,4 +139,19 @@ var lower = [lowerCase()];
 var upper = [upperCase()];
 var numeric = numericValue();
 var characters = specialCharacters();
+
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
