@@ -41,11 +41,11 @@
       }
 
     return lengthCharacters;
-  } // END OF MY LENGTHPASSWORD FUNCTION 
-
+  } // END OF LENGTHPASSWORD FUNCTION 
+  //lengthPassword();
 
 var lowerCase = function() {
-    var lower = window.prompt("Would you like a lowercase in your password type 1 for yes or 2 for not");
+    var lower = window.prompt("Would you like a LOWER case in your password type 1 for yes or 2 for not");
       if(lower === "1"){              // check for the user input
         var lowerAcceptance = true;
         return lowerAcceptance;
@@ -58,11 +58,11 @@ var lowerCase = function() {
         window.alert("Invalid input, try again");
         lowerCase();
       }
-} // END OF MY LOWERCASE FUNCTION 
-
+} // END OF LOWERCASE FUNCTION 
+//lowerCase();
 
 var upperCase = function() {
-  var upper = window.prompt("Would you like a uppercase in your password type 1 for yes or 2 for not");
+  var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 2 for not");
   if(upper === "1"){                // check for the user input
     var upperAcceptance = true;
     return upperAcceptance;
@@ -75,21 +75,43 @@ var upperCase = function() {
     window.alert("Invalid input, try again");
     upperCase();
   }
-}  // END OF MY UPPERCASE FUNCTION 
-
+}  // END OF UPPERCASE FUNCTION 
+//upperCase();
 
 var numericValue = function() {
+  var numeric = window.prompt("Would you like a NUMERIC value in your password type 1 for yes or 2 for not");
+  if(numeric === "1"){                // check for the user input
+    var numericAcceptance = true;
+    return numericAcceptance;
+  }
+  else if(numeric === "2"){         // If the user choses no, then variable will be false 
+    var numericAcceptance = false;
+    return numericAcceptance;
+  }
+  else{
+    window.alert("Invalid input, try again");
+    numericValue();
+  }
+} // END OF NUMERICVALUE FUNCTION 
 
-}
+//numericValue();
 
 var specialCharacters = function() {
-
+  var specialChar = window.prompt("Would you like a SPECIAL CHARACTER in your password type 1 for yes or 2 for not");
+  if(specialChar === "1"){                // check for the user input
+    var CharAcceptance = true;
+    return CharAcceptance;
+  }
+  else if(specialChar === "2"){         // If the user choses no, then variable will be false 
+    var CharAcceptance = false;
+    return CharAcceptance;
+  }
+  else{
+    window.alert("Invalid input, try again");
+    specialCharacters();
+  }
 }
-
-
-var password = function generatePassword(){
-}
-
+//specialCharacters();
 
 var generatePassword = function (){ /* not ready yet */ }
 
