@@ -33,33 +33,37 @@
 
 // Assignment code here
 
- const lengthPassword = function(){
-  var lengthCharacters = window.prompt("What is the length of your password at least 8 characters and no more than 128 characters");
-    if (lengthCharacters < 8 || lengthCharacters > 128){
-    window.alert("Invalid input, try again");
-    }
- 
-    lengthPassword();  // It will call the function again to ask the user for a valid input
+ var lengthPassword = function(){
+    var lengthCharacters = window.prompt("What is the length of your password at least 8 characters and no more than 128 characters");
+      if (lengthCharacters < 8 || lengthCharacters > 128){
+      window.alert("Invalid input, try again");
+      lengthPassword(); // It will call the function again to ask the user for a valid input
+      }
+
+    return lengthCharacters;
   }
 
 
-var generatePassword = function (){
-
-}
-
-var passWordLength = function() {
-
-
-    return ;
-}
-
-passWordLength();
+var generatePassword = function (){ /* not ready yet */ }
 
 
 var lowerCase = function() {
-  var lower = window.prompt("w");
-
+    var lower = window.prompt("Would you like a lowercase in your password type 1 for yes or 2 for not");
+      if(lower === "1"){  // check for the user input
+        var acceptance = true;
+        return acceptance;
+      }
+      else if(lower === "2"){  // If the user choses no, then lower variable will change to false 
+        var acceptance = true;
+        return acceptance;
+      }
+      else{
+        window.alert("Invalid input, try again");
+        lowerCase();
+      }
 }
+
+lowerCase();
 
 var upperCase = function() {
 
