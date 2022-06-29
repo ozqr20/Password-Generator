@@ -41,33 +41,42 @@
       }
 
     return lengthCharacters;
-  }
-
-
-var generatePassword = function (){ /* not ready yet */ }
+  } // END OF MY LENGTHPASSWORD FUNCTION 
 
 
 var lowerCase = function() {
     var lower = window.prompt("Would you like a lowercase in your password type 1 for yes or 2 for not");
-      if(lower === "1"){  // check for the user input
-        var acceptance = true;
-        return acceptance;
+      if(lower === "1"){              // check for the user input
+        var lowerAcceptance = true;
+        return lowerAcceptance;
       }
-      else if(lower === "2"){  // If the user choses no, then lower variable will change to false 
-        var acceptance = true;
-        return acceptance;
+      else if(lower === "2"){         // If the user choses no, then variable will be false 
+        var lowerAcceptance = false;
+        return lowerAcceptance;
       }
       else{
         window.alert("Invalid input, try again");
         lowerCase();
       }
-}
+} // END OF MY LOWERCASE FUNCTION 
 
-lowerCase();
 
 var upperCase = function() {
+  var upper = window.prompt("Would you like a uppercase in your password type 1 for yes or 2 for not");
+  if(upper === "1"){                // check for the user input
+    var upperAcceptance = true;
+    return upperAcceptance;
+  }
+  else if(upper === "2"){         // If the user choses no, then variable will be false 
+    var upperAcceptance = false;
+    return upperAcceptance;
+  }
+  else{
+    window.alert("Invalid input, try again");
+    upperCase();
+  }
+}  // END OF MY UPPERCASE FUNCTION 
 
-}
 
 var numericValue = function() {
 
@@ -80,6 +89,10 @@ var specialCharacters = function() {
 
 var password = function generatePassword(){
 }
+
+
+var generatePassword = function (){ /* not ready yet */ }
+
 
 
 
