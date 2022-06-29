@@ -68,7 +68,7 @@ var lowerCase = function() {
         return lowerAcceptance
       }
       else if(lower === "2"){         // If the user choses no, then variable will be false 
-        var lowerAcceptance = null;
+        var lowerAcceptance = false;
         return lowerAcceptance;
       }
       else{
@@ -84,7 +84,7 @@ var upperCase = function() {
     return upperAcceptance;
   }
   else if(upper === "2"){         // If the user choses no, then variable will be false 
-    var upperAcceptance = null;
+    var upperAcceptance = false;
     return upperAcceptance;
   }
   else{
@@ -100,7 +100,7 @@ var numericValue = function() {
     return numericAcceptance;
   }
   else if(numeric === "2"){         // If the user choses no, then variable will be false 
-    var numericAcceptance = null;
+    var numericAcceptance = false;
     return numericAcceptance;
   }
   else{
@@ -116,7 +116,7 @@ var specialCharacters = function() {
     return CharAcceptance;
   }
   else if(specialChar === "2"){         // If the user choses no, then variable will be false 
-    var CharAcceptance = null;
+    var CharAcceptance = false;
     return CharAcceptance;
   }
   else{
@@ -128,17 +128,16 @@ var specialCharacters = function() {
 
 var generatePassword = function (){ 
 
+lengthPassword();  // Since lengthPassword has a return, it will be save into a global variable
+lowerCase();
+upperCase();
+numericValue();
+specialCharacters();
 
- }
 
 
-// --------  GLOBAL VARIABLES ------------ 
+}
 
-var passWordLength = lengthPassword();  // Since lengthPassword has a return, it will be save into a global variable
-var lower = [lowerCase()];
-var upper = [upperCase()];
-var numeric = numericValue();
-var characters = specialCharacters();
 
 
 // Get references to the #generate element
