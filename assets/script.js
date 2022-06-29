@@ -33,10 +33,45 @@
 
 // Assignment code here
 
+ const lengthPassword = function(){
+  var lengthCharacters = window.prompt("What is the length of your password at least 8 characters and no more than 128 characters");
+    if (lengthCharacters < 8 || lengthCharacters > 128){
+    window.alert("Invalid input, try again");
+    }
+ 
+    lengthPassword();  // It will call the function again to ask the user for a valid input
+  }
+
+
 var generatePassword = function (){
 
 }
 
+var passWordLength = function() {
+
+
+    return ;
+}
+
+passWordLength();
+
+
+var lowerCase = function() {
+  var lower = window.prompt("w");
+
+}
+
+var upperCase = function() {
+
+}
+
+var numericValue = function() {
+
+}
+
+var specialCharacters = function() {
+
+}
 
 
 var password = function generatePassword(){
