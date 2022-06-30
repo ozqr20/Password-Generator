@@ -57,6 +57,7 @@ THEN the password is either displayed in an alert or written to the page
 
   7. Work on main function generatePassword which only will call all the functions.
 
+  
 */
 
 
@@ -216,7 +217,7 @@ var randomValues = function (){
 
 var generatePassword = function (){ 
 
-console.log(randomValues());
+randomValues();
 
 } // END OF GENERATE PASSWORD FUNCTION
 
@@ -235,5 +236,5 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+document.getElementById("generate").addEventListener("click", writePassword);
 
