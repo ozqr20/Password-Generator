@@ -1,4 +1,6 @@
 /*                                          ACCEPTANCE CRITERIA 
+
+
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
@@ -19,6 +21,7 @@ THEN the password is either displayed in an alert or written to the page
 
 
 /*                                            PSEUDO CODE
+
 
   1. Button to generate password should call the function to generate the password 
  
@@ -49,7 +52,7 @@ THEN the password is either displayed in an alert or written to the page
      by using a loop inside of an if statement that will check for true values and then append the result into the
      empty array 
   
-  6. Lastly we do a random method to combine everything in the array according to the user criteria and length
+  // 6. Lastly we do a random loop to combine everything in the array that contains the criteria according to the user criteria and length
      of password 
 
   7. Work on main function generatePassword which only will call all the functions.
@@ -136,6 +139,7 @@ var specialCharacters = function() {
 var randomValues = function (){
 
   var arrayOfAllValues = [];
+  var specialCharArray = [];
 
   //SPECIAL CHARACTER LOOP
 
@@ -143,11 +147,12 @@ var randomValues = function (){
   var charactersLength = characters.length; 
 
   if(specialCharacters()){
-
+    
       for( let i = 0; i < 8; i++){
         arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
       };
-      return arrayOfAllValues.join('');
+     // arrayOfAllValues.join('');
+     arrayOfAllValues.push(...specialCharArray); // ... it takes the content of the array without affecting the actual array "shallow copy"
   };
 
   // UPPER CASE LOOP
@@ -159,8 +164,10 @@ var randomValues = function (){
     for( let i = 0; i < 8; i++){
       arrayOfAllValues.push(upper.charAt(Math.floor(Math.random() * upperLength)));
     };
-    return arrayOfAllValues.join('');
+    //arrayOfAllValues.join('');
+    arrayOfAllValues.push(...specialCharArray);
   };
+
 
   // LOWER CASE LOOP
 
@@ -171,8 +178,10 @@ var randomValues = function (){
     for( let i = 0; i < 8; i++){
       arrayOfAllValues.push(lower.charAt(Math.floor(Math.random() * lowerLength)));
     };
-    return arrayOfAllValues.join('');
+    //arrayOfAllValues.join('');
+    arrayOfAllValues.push(...specialCharArray);
   };
+
 
   // NUMERIC CASE LOOP
     
@@ -182,27 +191,32 @@ var randomValues = function (){
     for( let i = 0; i < 8; i++){
       arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
     };
-    return arrayOfAllValues.join('');
+    arrayOfAllValues.push(...specialCharArray);
   };
+
+  // FINAL ARRAY LOOP 
+
+
+  var finalArray = [];
+  var stringAllValues = arrayOfAllValues.join('');
+  var arrayOfAllValuesLength = stringAllValues.length
+
+  for( let i = 0; i < 8; i++){
+    finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * arrayOfAllValuesLength)));
+  };
+
+  return finalArray.join('');
 
 
 }; // END OF RANDOM VALUES
 
-//----------------------------------------------------------------------------------
+//   ------------------------------------------------------------------------------------//
 
-// STARTS THE MAIN FUNCTION 
+// STARTS THE MAIN FUNCTION GENERATE PASSWORD
 
 var generatePassword = function (){ 
 
-lengthPassword();  // Since lengthPassword has a return, it will be save into a global variable
-lowerCase();
-upperCase();
-numericValue();
-specialCharacters();
-
-
-
-
+console.log(randomValues());
 
 } // END OF GENERATE PASSWORD FUNCTION
 
@@ -219,6 +233,7 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
