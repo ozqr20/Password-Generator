@@ -136,6 +136,9 @@ var specialCharacters = function() {
 var randomValues = function (){
 
   var arrayOfAllValues = [];
+
+  //SPECIAL CHARACTER LOOP
+
   var characters = `!@#$%^&*()_+=-{[}]:;"'|\\<,>.?/`;
   var charactersLength = characters.length; 
 
@@ -147,6 +150,7 @@ var randomValues = function (){
       return arrayOfAllValues.join('');
   };
 
+  // UPPER CASE LOOP
 
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var upperLength = upper.length;
@@ -158,6 +162,7 @@ var randomValues = function (){
     return arrayOfAllValues.join('');
   };
 
+  // LOWER CASE LOOP
 
   var lower = 'abcdefghijklmnopqrstuvwxyz';
   var lowerLength = lower.length;
@@ -169,6 +174,7 @@ var randomValues = function (){
     return arrayOfAllValues.join('');
   };
 
+  // NUMERIC CASE LOOP
     
   var numeric = '0123456789';
   var numericLength = numeric.length;
