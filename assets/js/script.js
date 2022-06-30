@@ -147,11 +147,10 @@ var randomValues = function (){
   // UPPER CASE LOOP
 
   var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  var upperLength = upper.length;
 
   if(upperCase()) {
     for( let i = 0; i < numberChars; i++){
-      arrayOfAllValues.push(upper.charAt(Math.floor(Math.random() * upperLength)));
+      arrayOfAllValues.push(upper.charAt(Math.floor(Math.random() * upper.length)));
     };
     arrayOfAllValues.push(...specialCharArray);
   };
@@ -160,11 +159,10 @@ var randomValues = function (){
   // LOWER CASE LOOP
 
   var lower = 'abcdefghijklmnopqrstuvwxyz';
-  var lowerLength = lower.length;
 
   if(lowerCase()) {
     for( let i = 0; i < numberChars; i++){
-      arrayOfAllValues.push(lower.charAt(Math.floor(Math.random() * lowerLength)));
+      arrayOfAllValues.push(lower.charAt(Math.floor(Math.random() * lower.length)));
     };
     //arrayOfAllValues.join('');
     arrayOfAllValues.push(...specialCharArray);
@@ -174,10 +172,10 @@ var randomValues = function (){
   // NUMERIC CASE LOOP
     
   var numeric = '0123456789';
-  var numericLength = numeric.length;
+
   if(numericValue()){
     for( let i = 0; i < numberChars; i++){
-      arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
+      arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numeric.length)));
     };
     arrayOfAllValues.push(...specialCharArray);
   };
@@ -186,33 +184,31 @@ var randomValues = function (){
   //SPECIAL CHARACTER LOOP
 
   var characters = `!@#$%^&*()_+=-{[}]:;"'|\\<,>.?/`;
-  var charactersLength = characters.length; 
 
   if(specialCharacters()){
     
       for( let i = 0; i < numberChars; i++){
-        arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+        arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * characters.length)));
       };
     arrayOfAllValues.push(...specialCharArray); // ... it takes the content of the array without affecting the actual array "shallow copy"
   };
-  // FINAL ARRAY LOOP 
 
+
+
+  // FINAL ARRAY LOOP 
 
   var finalArray = [];
   var stringAllValues = arrayOfAllValues.join('');
-  var arrayOfAllValuesLength = stringAllValues.length
 
   for( let i = 0; i < numberChars; i++){
-    finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * arrayOfAllValuesLength)));
+    finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * stringAllValues.length)));
   };
 
-  //console.log(finalArray);
   return finalArray.join('');
 
 
 }; // END OF RANDOM VALUES
 
-//   ------------------------------------------------------------------------------------//
 
 // STARTS THE MAIN FUNCTION GENERATE PASSWORD
 

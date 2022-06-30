@@ -16,6 +16,16 @@ body {
   font-family: sans-serif;
   background-color: #f9fbfd;
 }
+h2 {
+  color: hsl(360, 91%, 36%);
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  opacity: .4;
+}
 
 .wrapper {
   padding-top: 30px;
@@ -31,7 +41,7 @@ header {
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: black;
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
@@ -40,6 +50,14 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  opacity: .4;
+}
+
+.wrapper {
+  background-image: url("./images/image1.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
 }
 
 .card-header::after {
@@ -54,8 +72,17 @@ header {
   min-height: 100px;
 }
 
+#password {
+  color: hsl(360, 91%, 36%);
+}
 .card-footer {
   text-align: center;
+}
+
+.card-footer button {
+  background-color: hsl(360, 91%, 36%);
+  color:hsl(0, 0%, 100%);
+  font-weight: bold;
 }
 
 .card-footer::before {
@@ -76,9 +103,7 @@ header {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
