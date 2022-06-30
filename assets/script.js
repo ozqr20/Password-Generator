@@ -1,4 +1,4 @@
-/*ACCEPTANCE CRITERIA 
+/*                                          ACCEPTANCE CRITERIA 
 GIVEN I need a new, secure password
 WHEN I click the button to generate a password
 THEN I am presented with a series of prompts for password criteria
@@ -14,20 +14,21 @@ WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
-
 */
 
 
 
-/* PSEUDO CODE
+/*                                            PSEUDO CODE
 
   1. Button to generate password should call the function to generate the password 
+ 
   2. Create functions
         - passWordLenght
         - lowerCase 
         - upperCase
         - numericValue
-        - specialCharacters 
+        - specialCharacters
+        - randomValues 
         - generatePassword
 
   3. Then prompt 
@@ -44,7 +45,14 @@ THEN the password is either displayed in an alert or written to the page
         - option 4 will call the numeric function 
         - option 5 will call the special characters function 
   
-  6. Work on main function generatePassword to call the rest of the functions by using if statments and loops
+  5. Create and empty array which will include every lowercase, uppercase, numeric value and/or special characters
+     by using a loop inside of an if statement that will check for true values and then append the result into the
+     empty array 
+  
+  6. Lastly we do a random method to combine everything in the array according to the user criteria and length
+     of password 
+
+  7. Work on main function generatePassword which only will call all the functions.
 
 */
 
@@ -64,7 +72,7 @@ var lengthPassword = function(){
 var lowerCase = function() {
     var lower = window.prompt("Would you like a LOWER case in your password type 1 for yes or 2 for not");
       if(lower === "1"){              // check for the user input
-        var lowerAcceptance = ["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
+        var lowerAcceptance = true; //["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
         return lowerAcceptance
       }
       else if(lower === "2"){         // If the user choses no, then variable will be false 
@@ -80,7 +88,7 @@ var lowerCase = function() {
 var upperCase = function() {
   var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 2 for not");
   if(upper === "1"){                // check for the user input
-    var upperAcceptance = ["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
+    var upperAcceptance = true; //["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
     return upperAcceptance;
   }
   else if(upper === "2"){         // If the user choses no, then variable will be false 
@@ -96,7 +104,7 @@ var upperCase = function() {
 var numericValue = function() {
   var numeric = window.prompt("Would you like a NUMERIC value in your password type 1 for yes or 2 for not");
   if(numeric === "1"){                // check for the user input
-    var numericAcceptance = [0,1,2,3,4,5,6,7,8,9];
+    var numericAcceptance = true; 
     return numericAcceptance;
   }
   else if(numeric === "2"){         // If the user choses no, then variable will be false 
@@ -112,7 +120,7 @@ var numericValue = function() {
 var specialCharacters = function() {
   var specialChar = window.prompt("Would you like a SPECIAL CHARACTER in your password type 1 for yes or 2 for not");
   if(specialChar === "1"){                // check for the user input
-    var CharAcceptance = `!@#$%^&*()_+=-{[}]:;"'|\<,>.?/`;
+    var CharAcceptance = true; 
     return CharAcceptance;
   }
   else if(specialChar === "2"){         // If the user choses no, then variable will be false 
@@ -125,6 +133,36 @@ var specialCharacters = function() {
   }
 } // END OF SPECIAL CHARACTERS FUNCTION 
 
+var randomValues = function (){
+
+  var arrayOfAllValues = [];
+  var characters = `!@#$%^&*()_+=-{[}]:;"'|\\<,>.?/`;
+  var charactersLength = characters.length; 
+
+  if(specialCharacters()){
+
+      for( let i = 0; i < 8; i++){
+        arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+      };
+      return arrayOfAllValues.join('');
+  };
+   // FOR LATER 
+  // var numeric = '0123456789';
+  // var numericLength = numeric.length;
+  // if(numericValue()){
+  //   for( let i = 0; i < 8; i++){
+  //     arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
+  //   };
+  //   return arrayOfAllValues.join('');
+  // };
+
+
+
+}; // END OF RANDOM VALUES
+
+//----------------------------------------------------------------------------------
+
+// STARTS THE MAIN FUNCTION 
 
 var generatePassword = function (){ 
 
@@ -136,7 +174,9 @@ specialCharacters();
 
 
 
-}
+
+
+} // END OF GENERATE PASSWORD FUNCTION
 
 
 
