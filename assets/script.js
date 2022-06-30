@@ -57,7 +57,7 @@ THEN the password is either displayed in an alert or written to the page
 
   7. Work on main function generatePassword which only will call all the functions.
 
-  
+
 */
 
 
@@ -74,12 +74,12 @@ var lengthPassword = function(){
 } // END OF LENGTH PASSWORD FUNCTION 
 
 var lowerCase = function() {
-    var lower = window.prompt("Would you like a LOWER case in your password type 1 for yes or 2 for not");
+    var lower = window.prompt("Would you like a LOWER case in your password type 1 for yes or 0 for not");
       if(lower === "1"){              // check for the user input
         var lowerAcceptance = true; 
         return lowerAcceptance
       }
-      else if(lower === "2"){         // If the user choses no, then variable will be false 
+      else if(lower === "0"){         // If the user choses no, then variable will be false 
         var lowerAcceptance = false;
         return lowerAcceptance;
       }
@@ -90,12 +90,12 @@ var lowerCase = function() {
 } // END OF LOWER CASE FUNCTION 
 
 var upperCase = function() {
-  var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 2 for not");
+  var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 0 for not");
   if(upper === "1"){                // check for the user input
     var upperAcceptance = true;
     return upperAcceptance;
   }
-  else if(upper === "2"){         // If the user choses no, then variable will be false 
+  else if(upper === "0"){         // If the user choses no, then variable will be false 
     var upperAcceptance = false;
     return upperAcceptance;
   }
@@ -106,12 +106,12 @@ var upperCase = function() {
 }  // END OF UPPER CASE FUNCTION 
 
 var numericValue = function() {
-  var numeric = window.prompt("Would you like a NUMERIC value in your password type 1 for yes or 2 for not");
+  var numeric = window.prompt("Would you like a NUMERIC value in your password type 1 for yes or 0 for not");
   if(numeric === "1"){                // check for the user input
     var numericAcceptance = true; 
     return numericAcceptance;
   }
-  else if(numeric === "2"){         // If the user choses no, then variable will be false 
+  else if(numeric === "0"){         // If the user choses no, then variable will be false 
     var numericAcceptance = false;
     return numericAcceptance;
   }
@@ -122,12 +122,12 @@ var numericValue = function() {
 } // END OF NUMERIC VALUE FUNCTION 
 
 var specialCharacters = function() {
-  var specialChar = window.prompt("Would you like a SPECIAL CHARACTER in your password type 1 for yes or 2 for not");
+  var specialChar = window.prompt("Would you like a SPECIAL CHARACTER in your password type 1 for yes or 0 for not");
   if(specialChar === "1"){                // check for the user input
     var CharAcceptance = true; 
     return CharAcceptance;
   }
-  else if(specialChar === "2"){         // If the user choses no, then variable will be false 
+  else if(specialChar === "0"){         // If the user choses no, then variable will be false 
     var CharAcceptance = false;
     return CharAcceptance;
   }
@@ -139,22 +139,10 @@ var specialCharacters = function() {
 
 var randomValues = function (){
 
+  var numberChars = lengthPassword();
   var arrayOfAllValues = [];
   var specialCharArray = [];
 
-  //SPECIAL CHARACTER LOOP
-
-  var characters = `!@#$%^&*()_+=-{[}]:;"'|\\<,>.?/`;
-  var charactersLength = characters.length; 
-
-  if(specialCharacters()){
-    
-      for( let i = 0; i < 8; i++){
-        arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
-      };
-     // arrayOfAllValues.join('');
-     arrayOfAllValues.push(...specialCharArray); // ... it takes the content of the array without affecting the actual array "shallow copy"
-  };
 
   // UPPER CASE LOOP
 
@@ -162,10 +150,9 @@ var randomValues = function (){
   var upperLength = upper.length;
 
   if(upperCase()) {
-    for( let i = 0; i < 8; i++){
+    for( let i = 0; i < numberChars; i++){
       arrayOfAllValues.push(upper.charAt(Math.floor(Math.random() * upperLength)));
     };
-    //arrayOfAllValues.join('');
     arrayOfAllValues.push(...specialCharArray);
   };
 
@@ -176,7 +163,7 @@ var randomValues = function (){
   var lowerLength = lower.length;
 
   if(lowerCase()) {
-    for( let i = 0; i < 8; i++){
+    for( let i = 0; i < numberChars; i++){
       arrayOfAllValues.push(lower.charAt(Math.floor(Math.random() * lowerLength)));
     };
     //arrayOfAllValues.join('');
@@ -189,12 +176,25 @@ var randomValues = function (){
   var numeric = '0123456789';
   var numericLength = numeric.length;
   if(numericValue()){
-    for( let i = 0; i < 8; i++){
+    for( let i = 0; i < numberChars; i++){
       arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
     };
     arrayOfAllValues.push(...specialCharArray);
   };
 
+
+  //SPECIAL CHARACTER LOOP
+
+  var characters = `!@#$%^&*()_+=-{[}]:;"'|\\<,>.?/`;
+  var charactersLength = characters.length; 
+
+  if(specialCharacters()){
+    
+      for( let i = 0; i < numberChars; i++){
+        arrayOfAllValues.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+      };
+    arrayOfAllValues.push(...specialCharArray); // ... it takes the content of the array without affecting the actual array "shallow copy"
+  };
   // FINAL ARRAY LOOP 
 
 
@@ -202,10 +202,11 @@ var randomValues = function (){
   var stringAllValues = arrayOfAllValues.join('');
   var arrayOfAllValuesLength = stringAllValues.length
 
-  for( let i = 0; i < 8; i++){
+  for( let i = 0; i < numberChars; i++){
     finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * arrayOfAllValuesLength)));
   };
 
+  //console.log(finalArray);
   return finalArray.join('');
 
 
@@ -217,7 +218,8 @@ var randomValues = function (){
 
 var generatePassword = function (){ 
 
-randomValues();
+return randomValues();
+
 
 } // END OF GENERATE PASSWORD FUNCTION
 
@@ -236,5 +238,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-document.getElementById("generate").addEventListener("click", writePassword);
-
+generateBtn.addEventListener("click", writePassword);
