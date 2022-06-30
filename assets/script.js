@@ -72,7 +72,7 @@ var lengthPassword = function(){
 var lowerCase = function() {
     var lower = window.prompt("Would you like a LOWER case in your password type 1 for yes or 2 for not");
       if(lower === "1"){              // check for the user input
-        var lowerAcceptance = true; //["a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z"];
+        var lowerAcceptance = true; 
         return lowerAcceptance
       }
       else if(lower === "2"){         // If the user choses no, then variable will be false 
@@ -88,7 +88,7 @@ var lowerCase = function() {
 var upperCase = function() {
   var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 2 for not");
   if(upper === "1"){                // check for the user input
-    var upperAcceptance = true; //["A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"];
+    var upperAcceptance = true;
     return upperAcceptance;
   }
   else if(upper === "2"){         // If the user choses no, then variable will be false 
@@ -146,16 +146,38 @@ var randomValues = function (){
       };
       return arrayOfAllValues.join('');
   };
-   // FOR LATER 
-  // var numeric = '0123456789';
-  // var numericLength = numeric.length;
-  // if(numericValue()){
-  //   for( let i = 0; i < 8; i++){
-  //     arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
-  //   };
-  //   return arrayOfAllValues.join('');
-  // };
 
+
+  var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var upperLength = upper.length;
+
+  if(upperCase()) {
+    for( let i = 0; i < 8; i++){
+      arrayOfAllValues.push(upper.charAt(Math.floor(Math.random() * upperLength)));
+    };
+    return arrayOfAllValues.join('');
+  };
+
+
+  var lower = 'abcdefghijklmnopqrstuvwxyz';
+  var lowerLength = lower.length;
+
+  if(lowerCase()) {
+    for( let i = 0; i < 8; i++){
+      arrayOfAllValues.push(lower.charAt(Math.floor(Math.random() * lowerLength)));
+    };
+    return arrayOfAllValues.join('');
+  };
+
+    
+  var numeric = '0123456789';
+  var numericLength = numeric.length;
+  if(numericValue()){
+    for( let i = 0; i < 8; i++){
+      arrayOfAllValues.push(numeric.charAt(Math.floor(Math.random() * numericLength)));
+    };
+    return arrayOfAllValues.join('');
+  };
 
 
 }; // END OF RANDOM VALUES
