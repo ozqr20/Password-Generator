@@ -11,4 +11,6 @@
 * Each section is divided by comments where to start and where it ends 
 * The whole functionality is based on functions, loops, arrays and if statements
 
-* View live site in here https://ozqr20.github.io/Password-Generator/
+* Live site here https://ozqr20.github.io/Password-Generator/
+
+![passwordgenerator](https://user-images.githubusercontent.com/53874145/176812780-849a0998-b329-4883-aa02-a7015558c799.png)
