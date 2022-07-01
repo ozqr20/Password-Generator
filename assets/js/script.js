@@ -90,7 +90,7 @@ var lowerCase = function() {
 } // END OF LOWER CASE FUNCTION 
 
 var upperCase = function() {
-  var upper = window.prompt("Would you like a UPPER case in your password type 1 for yes or 0 for not");
+  var upper = window.prompt("Would you like an UPPER case in your password type 1 for yes or 0 for not");
   if(upper === "1"){                // check for the user input
     var upperAcceptance = true;
     return upperAcceptance;
@@ -193,18 +193,24 @@ var randomValues = function (){
     arrayOfAllValues.push(...specialCharArray); // ... it takes the content of the array without affecting the actual array "shallow copy"
   };
 
+  // CHECK FOR EMPTY ARRAY 
 
+  if(arrayOfAllValues.length === 0){
+    window.alert("Invalid input, you must selected one option. Try again")
+    randomValues();
+  } else{
 
-  // FINAL ARRAY LOOP 
+      // FINAL ARRAY LOOP 
 
-  var finalArray = [];
-  var stringAllValues = arrayOfAllValues.join('');
+      var finalArray = [];
+      var stringAllValues = arrayOfAllValues.join('');
 
-  for( let i = 0; i < numberChars; i++){
-    finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * stringAllValues.length)));
-  };
+      for( let i = 0; i < numberChars; i++){
+        finalArray.push(stringAllValues.charAt(Math.floor(Math.random() * stringAllValues.length)));
+      };
 
-  return finalArray.join('');
+      return finalArray.join('');
+    }
 
 
 }; // END OF RANDOM VALUES
