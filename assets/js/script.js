@@ -197,6 +197,7 @@ var randomValues = function (){
 
   if(arrayOfAllValues.length === 0){
     window.alert("Invalid input, you must selected one option. Try again")
+    arrayOfAllValues.clear();
     randomValues();
   } else{
 
